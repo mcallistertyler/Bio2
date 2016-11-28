@@ -12,7 +12,7 @@ import time
 import numpy as np
 from sys import stdin, stdout, argv
 
-#Spins because spinning is fun
+#Spinning loading cursor that isn't really necessary but it's fun
 def spinning_cursor():
     while True:
         for cursor in '|/-\\':
@@ -35,6 +35,8 @@ for x in range(1, int(userinput)+1):
 print "Outputs saved to file.\n"
 stand = []
 hits = []
+#Messily opens a text file containing the information we need, standardisation fitness and hits
+#Save them each to their own lists
 with open('work.txt', 'r') as f:
 	for line in f:
 		if len(line) < 50:
@@ -54,7 +56,8 @@ averagehits = sum(hits) / len(hits)
 print "\n"
 print "Standard Deviation...",  np.std(stand)
 print "Writing averages to file..."
-
+#Writes the averaged standardisation fitness and hits to a file
+#Not very useful, copy and pasting from terminal output was easier
 f = open('averageresults.txt', 'w')
 f.write("Average Standardisation: " + str(averagestand))
 f.write("\n")
